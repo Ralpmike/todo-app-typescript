@@ -2,13 +2,16 @@
 
 A todo list app built from scratch with Vite and TypeScript, with no framework. I built it to learn how JavaScript, TypeScript and the DOM work under the hood.
 
+**Live demo:** https://todo-app-typescript-ruby.vercel.app/
+
+
 ## Features
 
 This app supports full CRUD (create, read, update, delete):
 
 - **Add** a todo by typing in the input field and clicking **Add**. Empty todos are ignored.
 - **Complete** a todo by ticking its checkbox. Completed todos are crossed out and faded.
-- **Edit** a todo by double-clicking its text. Press **Enter** to save or **Escape** to cancel. Saving empty text keeps the original.
+- **Edit** a todo with its **Edit** button or by double-clicking its text. Press **Enter** to save or **Escape** to cancel. Saving empty text keeps the original.
 - **Delete** a todo with its **Delete** button.
 - **Filter** the list:
   - **All**: every todo
@@ -47,9 +50,8 @@ Vite, TypeScript, HTML and CSS. No framework.
 
 ## What I'd improve next
 
-- Better accessibility: labels for checkboxes and delete buttons, and a way to edit with the keyboard
+- Better accessibility: visually hidden form label, and leaving edit mode by clicking away
 - Unit tests for the pure functions with Vitest
-- Deploying a live demo
 
 ## Run it locally
 
