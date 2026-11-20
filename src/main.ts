@@ -126,18 +126,33 @@ const renderTodos = () => {
 
 renderTodos();
 
-//? Deleting a todo
+//? 
 todoList.addEventListener("click", (e) => {
-  if (!(e.target instanceof HTMLButtonElement && e.target.dataset.action === "delete")) {
+  if (!(e.target instanceof HTMLButtonElement )) {
     return;
   }
 
+  
   const button = e.target;
+  const action = button.dataset.action
 
   const todoId = button.closest("li")?.dataset.id;
-  todos = todos.filter((todo) => todo.id !== todoId);
-  saveTodos(todos);
-  renderTodos();
+  if(!todoId){
+    return;
+  }
+
+  if(action === "delete"){
+    todos = todos.filter((todo) => todo.id !== todoId);
+    saveTodos(todos);
+    renderTodos();
+  }
+
+  if(action === "edit"){
+    todoIdToBeEdited = todoId;
+    renderTodos()
+  }
+
+
 });
 
 todoList.addEventListener("dblclick", (e) => {
