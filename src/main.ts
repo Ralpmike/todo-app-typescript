@@ -89,9 +89,17 @@ const renderTodos = () => {
       li.appendChild(name);
     }
 
+    const editButton = document.createElement("button");
+    editButton.type = "button";
+    editButton.textContent = "Edit";
+    editButton.dataset.action = "edit";
+    editButton.setAttribute("aria-label", `Edit ${todo.todoItem}`)
+    li.appendChild(editButton)
+    
     const button = document.createElement("button");
     button.type = "button";
     button.textContent = "Delete";
+    button.dataset.action = "delete";
     button.setAttribute("aria-label", `Delete ${todo.todoItem}`)
     li.appendChild(button);
 
@@ -120,7 +128,7 @@ renderTodos();
 
 //? Deleting a todo
 todoList.addEventListener("click", (e) => {
-  if (!(e.target instanceof HTMLButtonElement)) {
+  if (!(e.target instanceof HTMLButtonElement && e.target.dataset.action === "delete")) {
     return;
   }
 
