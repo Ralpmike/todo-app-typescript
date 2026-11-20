@@ -65,6 +65,7 @@ const renderTodos = () => {
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.checked = todo.isCompleted;
+    checkbox.setAttribute("aria-label", `Mark ${todo.todoItem} as done`)
     li.appendChild(checkbox);
 
     checkbox.addEventListener("change", () => {
@@ -91,6 +92,7 @@ const renderTodos = () => {
     const button = document.createElement("button");
     button.type = "button";
     button.textContent = "Delete";
+    button.setAttribute("aria-label", `Delete ${todo.todoItem}`)
     li.appendChild(button);
 
     todoList.appendChild(li);
