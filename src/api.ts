@@ -23,7 +23,7 @@ export async function fetchSampleTodos(): Promise<Todo[]> {
     throw new Error("Unexpected data received from the server");
   }
 
-  return toTodo(data);
+  return toTodos(data);
 }
 
 //? type guard: type predicate
@@ -45,7 +45,7 @@ function isServerTodoList(data: unknown): data is ServerTodo[] {
 }
 
 //? this function convert server todo to todo
-function toTodo(serverTodo: ServerTodo[]): Todo[] {
+function toTodos(serverTodo: ServerTodo[]): Todo[] {
   return serverTodo.map((todo) => ({
     id: crypto.randomUUID(),
     isCompleted: todo.completed,

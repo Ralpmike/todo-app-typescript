@@ -187,12 +187,12 @@ todoList.addEventListener("keydown", (e) => {
       return;
     }
 
-    const todoEditted = todos.find((todo) => todo.id === todoIdToBeEdited);
-    if (!todoEditted) {
+    const editedTodo = todos.find((todo) => todo.id === todoIdToBeEdited);
+    if (!editedTodo) {
       return;
     }
 
-    todoEditted.todoItem = inputValue;
+    editedTodo.todoItem = inputValue;
 
     todoIdToBeEdited = null;
     saveTodos(todos);

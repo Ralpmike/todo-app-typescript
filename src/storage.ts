@@ -1,11 +1,13 @@
 import type { Todo } from "./types";
 
+const STORAGE_KEY = "todos"
+
 export function saveTodos(todos: Todo[]) {
-  localStorage.setItem("todos", JSON.stringify(todos));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
 }
 
 export function loadTodos(): Todo[] {
-  const text = localStorage.getItem("todos");
+  const text = localStorage.getItem(STORAGE_KEY);
   if (!text) {
     return [];
   }
