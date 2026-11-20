@@ -18,7 +18,8 @@ form {
   gap: 1rem;
   margin-block: 1rem;
 }
-form input, .edited_input {
+form input,
+.edited_input {
   flex: 1;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
@@ -69,12 +70,11 @@ button:hover {
   background-color: #ececec;
 }
 
-.selected{
+.selected {
   background-color: #a4a2a2;
   /* color: #fff; */
 }
 
-#error_message{
+#error_message {
   color: red;
 }
-

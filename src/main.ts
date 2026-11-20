@@ -65,7 +65,7 @@ const renderTodos = () => {
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.checked = todo.isCompleted;
-    checkbox.setAttribute("aria-label", `Mark ${todo.todoItem} as done`)
+    checkbox.setAttribute("aria-label", `Mark ${todo.todoItem} as done`);
     li.appendChild(checkbox);
 
     checkbox.addEventListener("change", () => {
@@ -93,14 +93,14 @@ const renderTodos = () => {
     editButton.type = "button";
     editButton.textContent = "Edit";
     editButton.dataset.action = "edit";
-    editButton.setAttribute("aria-label", `Edit ${todo.todoItem}`)
-    li.appendChild(editButton)
-    
+    editButton.setAttribute("aria-label", `Edit ${todo.todoItem}`);
+    li.appendChild(editButton);
+
     const button = document.createElement("button");
     button.type = "button";
     button.textContent = "Delete";
     button.dataset.action = "delete";
-    button.setAttribute("aria-label", `Delete ${todo.todoItem}`)
+    button.setAttribute("aria-label", `Delete ${todo.todoItem}`);
     li.appendChild(button);
 
     todoList.appendChild(li);
@@ -126,33 +126,29 @@ const renderTodos = () => {
 
 renderTodos();
 
-//? 
 todoList.addEventListener("click", (e) => {
-  if (!(e.target instanceof HTMLButtonElement )) {
+  if (!(e.target instanceof HTMLButtonElement)) {
     return;
   }
 
-  
   const button = e.target;
-  const action = button.dataset.action
+  const action = button.dataset.action;
 
   const todoId = button.closest("li")?.dataset.id;
-  if(!todoId){
+  if (!todoId) {
     return;
   }
 
-  if(action === "delete"){
+  if (action === "delete") {
     todos = todos.filter((todo) => todo.id !== todoId);
     saveTodos(todos);
     renderTodos();
   }
 
-  if(action === "edit"){
+  if (action === "edit") {
     todoIdToBeEdited = todoId;
-    renderTodos()
+    renderTodos();
   }
-
-
 });
 
 todoList.addEventListener("dblclick", (e) => {
@@ -224,21 +220,20 @@ filters.addEventListener("click", (e) => {
   renderTodos();
 });
 
-
-loadSamplesButton.addEventListener('click', async () => {
-  loadSamplesButton.disabled = true
-  loadSamplesButton.textContent = "Loading samples ...."
-  errorMessage.textContent = ""
+loadSamplesButton.addEventListener("click", async () => {
+  loadSamplesButton.disabled = true;
+  loadSamplesButton.textContent = "Loading samples ....";
+  errorMessage.textContent = "";
   try {
     const samples = await fetchSampleTodos();
     todos.push(...samples);
     saveTodos(todos);
-    renderTodos()
+    renderTodos();
   } catch (error) {
-    console.error("Could not load samples:", error)
-    errorMessage.textContent = `Could not load samples: Check your connection and try again`
-  }finally{
-    loadSamplesButton.disabled = false
-    loadSamplesButton.textContent = "Load samples"
+    console.error("Could not load samples:", error);
+    errorMessage.textContent = `Could not load samples: Check your connection and try again`;
+  } finally {
+    loadSamplesButton.disabled = false;
+    loadSamplesButton.textContent = "Load samples";
   }
-})
+});
