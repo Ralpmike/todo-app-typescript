@@ -200,7 +200,6 @@ todoList.addEventListener("keydown", (e) => {
   }
 });
 
-//? Filter logic
 filters.addEventListener("click", (e) => {
   if (!(e.target instanceof HTMLButtonElement && e.target.dataset.filter)) {
     return;

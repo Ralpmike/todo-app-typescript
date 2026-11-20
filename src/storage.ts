@@ -1,6 +1,6 @@
 import type { Todo } from "./types";
 
-const STORAGE_KEY = "todos"
+const STORAGE_KEY = "todos";
 
 export function saveTodos(todos: Todo[]) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
