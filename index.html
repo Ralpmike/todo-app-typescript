@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+  </head>
+  <body>
+    <main>
+      <h1 id="title">Todos</h1>
+      <form id="todo_form">
+        <label for="todo">Add a todo</label>
+          <input type="text" name="todo" placeholder="Buy milk" id="todo" />  
+        
+        <button type="submit">Add</button>
+      </form>
+      <ul id="todos">
+       
+      </ul>
+      <div class="filters">
+        <button id="all" type="button" data-filter="all">All</button>
+        <button id="active" type="button" data-filter="active">Active</button>
+        <button id="filter_completed" type="button" data-filter="completed">Completed</button>
+      </div>
+      <button id="load_samples" type="button">Load samples</button>
+      <p id="error_message" role="alert"></p>
+      <p id="todo_summary">0 item left</p>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
